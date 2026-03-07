@@ -7,9 +7,6 @@
 <br/>
 <br/>
 
-<!-- ES / EN toggle label -->
-**`ES`** · [**`EN`**](#-about-me)
-
 </div>
 
 ---
@@ -39,11 +36,6 @@ Este espacio es el lugar donde documento mi proceso de aprendizaje, publico scri
 
 ---
 
-<div align="center">
-<sub>Ciudad de México · Nexus Labs AI .dev · construyendo en público</sub>
-</div>
-
----
 ---
 
 ## 👾 About me
@@ -72,5 +64,5 @@ This space is where I document my learning process, publish scripts, proofs of c
 ---
 
 <div align="center">
-<sub>Mexico City · Nexus Labs AI .dev · building in public</sub>
+<sub>Fernando Cortés · Nexus Labs AI .dev · [Email](mailto:fer@nexuslabsai.dev)</sub>
 </div>
