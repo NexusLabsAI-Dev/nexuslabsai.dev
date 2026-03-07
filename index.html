@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Labs AI .dev</title>
+  <meta name="description" content="Personal lab for code, tools, and experiments in software development and AI.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg width='32' height='32' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='80' height='80' fill='%230D1117'/><polygon points='40,20.5 59,30 40,39.5 21,30' fill='rgba(0,201,255,0.07)' stroke='%2300C9FF' stroke-width='1.5' stroke-linejoin='round'/><polygon points='59,30 59,49 40,58.5 40,39.5' fill='rgba(123,97,255,0.07)' stroke='%237B61FF' stroke-width='1.5' stroke-linejoin='round' opacity='0.85'/><polygon points='21,30 40,39.5 40,58.5 21,49' fill='rgba(255,45,120,0.05)' stroke='%23FF2D78' stroke-width='1.5' stroke-linejoin='round' opacity='0.6'/><line x1='59' y1='30' x2='59' y2='49' stroke='%237B61FF' stroke-width='1.5' opacity='0.6'/><line x1='21' y1='30' x2='21' y2='49' stroke='%23FF2D78' stroke-width='1.5' opacity='0.45'/><circle cx='40' cy='20.5' r='2.5' fill='%2300C9FF'/><circle cx='59' cy='30' r='2.5' fill='%237B61FF'/><circle cx='21' cy='30' r='2.5' fill='%23FF2D78'/><circle cx='40' cy='39.5' r='2' fill='%2300C9FF' opacity='0.6'/></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0D1117;
+      --bg2:     #13181F;
+      --cyan:    #00C9FF;
+      --violet:  #7B61FF;
+      --magenta: #FF2D78;
+      --text:    #E6EDF3;
+      --muted:   #8B949E;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,201,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,201,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 15% 20%, rgba(0,201,255,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 500px at 85% 80%, rgba(123,97,255,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 300px at 85% 10%, rgba(255,45,120,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .corner { position: fixed; width: 80px; height: 80px; pointer-events: none; z-index: 1; }
+    .corner-tr { top: 0; right: 0; border-top: 1px solid rgba(0,201,255,0.12); border-right: 1px solid rgba(0,201,255,0.12); }
+    .corner-bl { bottom: 0; left: 0; border-bottom: 1px solid rgba(123,97,255,0.12); border-left: 1px solid rgba(123,97,255,0.12); }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    .banner {
+      width: 100%;
+      display: block;
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 36px 0;
+    }
+
+    section {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    p strong { color: var(--text); font-weight: 600; }
+
+    blockquote {
+      border-left: 2px solid var(--cyan);
+      padding-left: 20px;
+      margin: 0 0 16px;
+    }
+    blockquote p {
+      color: var(--muted);
+      font-size: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 5px 14px;
+      border: 1px solid rgba(0,201,255,0.2);
+      color: var(--cyan);
+      background: rgba(0,201,255,0.05);
+    }
+    .badge.violet { color: var(--violet); border-color: rgba(123,97,255,0.2); background: rgba(123,97,255,0.05); }
+    .badge.red    { color: #F47174;       border-color: rgba(244,113,116,0.2); background: rgba(244,113,116,0.05); }
+    .badge.blue   { color: #58A6FF;       border-color: rgba(88,166,255,0.2);  background: rgba(88,166,255,0.05); }
+
+    .lang-sep {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 48px 0;
+    }
+    .lang-sep::before, .lang-sep::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+    .lang-sep span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      opacity: 0.5;
+    }
+
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      opacity: 0.5;
+    }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .footer a:hover { opacity: 1; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+
+  <div class="page">
+
+    <img class="banner" src="https://raw.githubusercontent.com/NexusLabsAI-Dev/nexuslabsai.dev/main/banner.svg" alt="Nexus Labs AI .dev"/>
+
+    <hr>
+
+    <section>
+      <h2>👾 Sobre mí</h2>
+      <p>Soy Fernando, técnico en tecnología con enfoque en <strong>soporte técnico</strong> y <strong>service desk</strong>. Actualmente estudio una <strong>Licenciatura en Informática</strong> y desarrollo proyectos en la intersección del desarrollo de software y la inteligencia artificial.</p>
+      <p>Creo que la tecnología se aprende mejor construyendo cosas reales — aunque estén incompletas.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>🧪 Nexus Labs AI .dev</h2>
+      <blockquote><p>Laboratorio personal de código, herramientas y experimentos en desarrollo de software e IA.</p></blockquote>
+      <p>Este espacio es el lugar donde documento mi proceso de aprendizaje, publico scripts, pruebas de concepto y proyectos en construcción. No hay nada terminado aquí todavía — y eso es parte del punto.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>🛠 Stack & herramientas</h2>
+      <div class="badges">
+        <span class="badge red">// Java</span>
+        <span class="badge">// Git</span>
+        <span class="badge violet">// Microsoft 365</span>
+        <span class="badge blue">// VS Code</span>
+      </div>
+    </section>
+
+    <hr>
+
+    <div class="footer">
+      Fernando Cortés · Nexus Labs AI .dev · <a href="mailto:fer@nexuslabsai.dev">fer@nexuslabsai.dev</a>
+    </div>
+
+    <div class="lang-sep"><span>// EN</span></div>
+
+    <section>
+      <h2>👾 About me</h2>
+      <p>I'm Fernando, a tech professional focused on <strong>IT support</strong> and <strong>service desk</strong>. Currently pursuing a <strong>Bachelor's degree in Computer Science</strong> and building projects at the intersection of software development and artificial intelligence.</p>
+      <p>I believe technology is best learned by building real things — even if they're unfinished.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>🧪 Nexus Labs AI .dev</h2>
+      <blockquote><p>Personal lab for code, tools, and experiments in software development and AI.</p></blockquote>
+      <p>This space is where I document my learning process, publish scripts, proofs of concept, and work-in-progress projects. Nothing is finished here yet — and that's kind of the point.</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>🛠 Stack & tools</h2>
+      <div class="badges">
+        <span class="badge red">// Java</span>
+        <span class="badge">// Git</span>
+        <span class="badge violet">// Microsoft 365</span>
+        <span class="badge blue">// VS Code</span>
+      </div>
+    </section>
+
+    <hr>
+
+    <div class="footer">
+      Fernando Cortés · Nexus Labs AI .dev · <a href="mailto:fer@nexuslabsai.dev">fer@nexuslabsai.dev</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
