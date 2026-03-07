@@ -64,5 +64,5 @@ This space is where I document my learning process, publish scripts, proofs of c
 ---
 
 <div align="center">
-<sub>Fernando Cortés · Nexus Labs AI .dev · <a href="mailto:fer@nexuslabsai.dev">Email</a></sub>
+<sub>Fernando Cortés · Nexus Labs AI .dev · <a href="mailto:fer@nexuslabsai.dev">Contact me</a></sub>
 </div>
