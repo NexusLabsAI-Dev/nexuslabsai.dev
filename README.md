@@ -1,97 +1,72 @@
-# PT_Trainer · Nexus Labs AI
-
-> Herramienta interactiva de português para hispanohablantes. Sin backend, sin dependencias, sin compilador — desplegada directamente en GitHub Pages.
+[![Nexus Labs AI .dev](https://raw.githubusercontent.com/NexusLabsAI-Dev/nexuslabsai.dev/main/banner.svg)](https://nexuslabsai.dev)
 
 ---
 
-## ¿Qué es?
+## 🧪 Nexus Labs AI .dev
 
-PT_Trainer es una aplicación web diseñada específicamente para hispanohablantes que buscan aprender o mejorar su portugués brasileño. Cubre las áreas donde el español interfiere con más frecuencia: falsos amigos, conjugaciones verbales, preposiciones y ortografía.
+> Laboratorio personal de código, herramientas y experimentos en desarrollo de software e IA.
 
-Construida con HTML, CSS y Vanilla JS puros. Sin frameworks, sin build steps, sin dependencias externas más allá de Google Fonts.
+Este es el espacio de Fernando — profesional de IT con más de 4 años en soporte técnico global, estudiante de Licenciatura en Informática y en proceso de certificaciones en ciberseguridad. Aquí viven los proyectos en construcción, los experimentos y el aprendizaje en tiempo real.
 
----
+Nada está terminado aquí todavía — y ese es el punto.
 
-## Módulos
-
-| Módulo | Contenido |
-|---|---|
-| **Vocabulário** | 120+ palabras organizadas por nivel MCER (A1 → C2) |
-| **Falsos Amigos** | 15 trampas críticas para hispanohablantes con comparativa ES ↔ PT |
-| **Verbos** | 30 verbos con conjugación completa en 10 tiempos verbales cada uno |
-| **Preposições** | Las 6 preposiciones principales con reglas, contracciones y ejemplos |
-| **Ortografia** | 8 reglas críticas: ã/ão, lh, nh, x variable, acentos, plurales |
-| **Frases** | 20 frases situacionales en 4 grupos: cumprimentos, cotidiano, comunicação y BR |
-
-Cada módulo tiene modo **Referencia** y modo **Quiz** con preguntas generadas aleatoriamente.
+🌐 **[nexuslabsai.dev](https://nexuslabsai.dev)**
 
 ---
 
-## Funcionalidades
+## 🗂 Proyectos
 
-### Modo Claro / Oscuro
-Botón `🌗` en el encabezado. La preferencia se persiste en `localStorage` y se aplica al cargar la página.
-
-### Progreso Histórico
-Cada quiz guarda el récord de precisión por módulo en `localStorage`. El resultado al finalizar muestra el récord actual vs. el histórico.
-
-### Repetición Espaciada (SRS)
-Las preguntas falladas se registran silenciosamente y se priorizan en las siguientes sesiones del mismo módulo. Un ítem se elimina de la lista de fallos cuando se responde correctamente de forma consecutiva.
-
-### Búsqueda Global
-Barra de búsqueda en tiempo real que escanea vocabulario, falsos amigos y verbos simultáneamente. Al hacer clic en un resultado de verbo, redirige directamente a su tabla de conjugación.
+| # | Proyecto | Descripción | Estado | Link |
+|---|----------|-------------|--------|------|
+| 001 | **Java_Learning_Repo** | Repositorio de aprendizaje estructurado en Java. Ejercicios y fundamentos de POO. | 🔧 En progreso | [Repo](https://github.com/NexusLabsAI-Dev/java-learning) |
+| 002 | **Nexus_Labs_AI_Brand** | Marca digital de contenido enfocada en IA. Identidad visual completa. | ✅ Activo | [nexuslabsai.dev](https://nexuslabsai.dev) |
+| 003 | **Academia_OS** | Sistema de gestión académica personal con Firebase, Telegram y autenticación Google. | ✅ Activo | [App](https://academiaos.nexuslabsai.dev) |
+| 004 | **SQL_Interactive_Trainer** | Herramienta de práctica SQL con motor SQLite en el navegador. 57 ejercicios, 13 bloques. | ✅ Activo | [App](https://postgresql.nexuslabsai.dev) |
+| 005 | **Rent_Receipt_Generator** | Generador de recibos de renta en el navegador. Folio autoincremental con localStorage y exportación a PDF con jsPDF. | ✅ Activo | [App](https://rentas.nexuslabsai.dev) |
+| 006 | **Mexitán_POS** | Sistema punto de venta PWA para negocio local. Firebase Firestore, EmailJS y autenticación Google. | 🔒 Privado | — |
+| 007 | **Portugués_Interactive_Trainer** | Entrenador interactivo de conjugación en portugués. 30 verbos, 10 tiempos verbales y niveles A1–C2. | ✅ Activo | [App](https://portugues.nexuslabsai.dev) |
 
 ---
 
-## Verbos incluidos
+## 🛠 Stack & herramientas
 
-`ser` · `estar` · `ter` · `haver` · `ir` · `vir` · `fazer` · `poder` · `querer` · `saber` · `dar` · `ver` · `pôr` · `trazer` · `dizer` · `falar` · `comer` · `partir` · `ficar` · `chegar` · `conhecer` · `pedir` · `dormir` · `sentir` · `ouvir` · `gostar` · `precisar` · `conseguir` · `levar` · `estudar`
-
----
-
-## Tiempos verbales
-
-Presente · Pretérito Perfeito · Pretérito Imperfeito · Mais-que-Perfeito · Futuro do Presente · Condicional · Subjuntivo Presente · Subjuntivo Imperfeito · Futuro do Subjuntivo · Imperativo
-
----
-
-## Stack
-
-- HTML5 semántico
-- CSS3 con variables nativas (`--cyan`, `--violet`, `--magenta`, paleta dark/light)
-- JavaScript ES6+ sin dependencias
-- `localStorage` para persistencia de tema, récords y SRS
-- Google Fonts: Outfit + JetBrains Mono
-- Deploy: GitHub Pages (rama `main`)
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)](https://github.com/NexusLabsAI-Dev/java-learning)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](#)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://postgresql.nexuslabsai.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://academiaos.nexuslabsai.dev)
+[![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)](#)
+[![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)](#)
+[![Microsoft 365](https://img.shields.io/badge/Microsoft_365-D83B01?style=flat-square&logo=microsoftoffice&logoColor=white)](#)
 
 ---
 
-## Estructura del repositorio
+## 📋 Formación
+
+- 🎓 Licenciatura en Informática — En curso
+- 🔐 CompTIA Linux+ — En preparación
+- 🔐 CompTIA Security+ — En preparación
+- 🔐 CompTIA Pentest+ — En preparación
+
+---
+
+## 📁 Estructura del repo
 
 ```
-pt-trainer/
-├── index.html      # Estructura principal
-├── styles.css      # Paleta dark/light, variables, componentes
-├── main.js         # Datos, lógica de módulos, quiz, SRS, búsqueda
+nexuslabsai.dev/
+├── index.html      # Estructura principal (GitHub Pages)
+├── styles.css      # Estilos y tema visual
+├── main.js         # Lógica, i18n y comportamiento
+├── banner.svg      # Banner de la marca
+├── CNAME           # Dominio personalizado
 └── README.md       # Este archivo
 ```
 
 ---
 
-## Deploy
+## 📊 Analytics
 
-El proyecto corre directamente desde GitHub Pages sin pasos de compilación.
-
-```
-Settings → Pages → Branch: main → / (root)
-```
-
-Para dominio personalizado, añadir archivo `CNAME` con el subdominio deseado.
+El sitio utiliza **Google Analytics 4** para medición de tráfico y comportamiento de usuarios, con medición mejorada activada (vistas de página, desplazamientos y clics de salida).
 
 ---
 
-## Créditos
-
-Desarrollado por **Fernando Cortés** bajo [Nexus Labs AI](https://nexuslabsai.dev) como herramienta personal de estudio con proyección pública.
-
-`contact@nexuslabsai.dev`
+Fernando Cortés · Nexus Labs AI .dev · [contact@nexuslabsai.dev](mailto:contact@nexuslabsai.dev)

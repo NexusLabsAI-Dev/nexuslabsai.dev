@@ -1,38 +1,594 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="dark" lang="es" style="scroll-behavior:smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PT Trainer · Nexus Labs AI</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Q0QR5GV5Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3Q0QR5GV5Y');
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Labs AI .dev</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1117'/%3E%3Cpolygon points='32,8 52,19 32,30 12,19' fill='rgba(0,201,255,0.12)' stroke='%2300C9FF' stroke-width='1.5'/%3E%3Cpolygon points='52,19 52,43 32,54 32,30' fill='rgba(123,97,255,0.10)' stroke='%237B61FF' stroke-width='1.5'/%3E%3Cpolygon points='12,19 32,30 32,54 12,43' fill='rgba(255,45,120,0.08)' stroke='%23FF2D78' stroke-width='1.5'/%3E%3Ccircle cx='32' cy='8' r='2.5' fill='%2300C9FF'/%3E%3Ccircle cx='52' cy='19' r='2' fill='%237B61FF'/%3E%3Ccircle cx='12' cy='19' r='2' fill='%23FF2D78'/%3E%3Ccircle cx='32' cy='54' r='2.5' fill='%239B6FDF'/%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode:"class",
+  theme:{
+    extend:{
+      colors:{
+        "primary-fixed-dim":"#66d3ff","on-surface":"#dfe2eb","error":"#ffb4ab",
+        "surface-container-lowest":"#0a0e14","primary-fixed":"#bde9ff",
+        "on-tertiary-container":"#96003f","surface-dim":"#10141a",
+        "on-primary-container":"#005168","on-primary":"#003546",
+        "on-error-container":"#ffdad6","inverse-on-surface":"#2d3137",
+        "on-secondary":"#2e009c","on-tertiary-fixed-variant":"#90003d",
+        "error-container":"#93000a","secondary-fixed-dim":"#c9bfff",
+        "surface-tint":"#66d3ff","outline-variant":"#3c494f",
+        "surface-variant":"#31353c","on-tertiary":"#660029",
+        "on-secondary-fixed":"#1a0063","tertiary-container":"#ff9eb2",
+        "tertiary-fixed":"#ffd9df","secondary-fixed":"#e5deff",
+        "surface-container":"#1c2026","surface-container-low":"#181c22",
+        "inverse-primary":"#006684","secondary-container":"#4720ca",
+        "on-error":"#690005","on-background":"#dfe2eb","background":"#10141a",
+        "on-primary-fixed-variant":"#004d64","secondary":"#c9bfff",
+        "surface-container-high":"#262a31","on-secondary-container":"#baaeff",
+        "tertiary-fixed-dim":"#ffb1c0","primary":"#9adfff",
+        "inverse-surface":"#dfe2eb","on-tertiary-fixed":"#3f0017",
+        "surface":"#10141a","on-surface-variant":"#bcc8d0",
+        "on-secondary-fixed-variant":"#441cc8","primary-container":"#00c9ff",
+        "tertiary":"#ffc7d1","surface-container-highest":"#31353c",
+        "outline":"#86939a","surface-bright":"#353940","on-primary-fixed":"#001f2a"
+      },
+      fontFamily:{"headline":["Space Grotesk"],"body":["Inter"],"label":["JetBrains Mono"]},
+      borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},
+    },
+  },
+}
+</script>
+<style>
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.grid-bg{background-image:radial-gradient(circle at 2px 2px,rgba(255,255,255,0.03) 1px,transparent 0);background-size:32px 32px}
+body{min-height:max(884px,100dvh)}
+.lang-btn{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 8px;border:1px solid rgba(255,255,255,0.08);color:#8b949e;background:transparent;cursor:pointer;transition:all .15s;text-transform:uppercase}
+.lang-btn.active,.lang-btn:hover{color:#00c9ff;border-color:#00c9ff44;background:#00c9ff09}
+.lang-sep{color:#3c494f;font-size:10px;user-select:none}
+.proj-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(0,201,255,0.06);border:1px solid rgba(0,201,255,0.25);color:#9adfff;padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .15s}
+.proj-btn:hover{background:rgba(0,201,255,0.14)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.status-dot{animation:pulse 2s ease-in-out infinite}
+</style>
 </head>
-<body>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
 
-<div id="hdr">
-  <div class="brand">
-    <div class="brand-bar"></div>
-    <div style="flex-grow:1">
-      <div class="brand-title">PT_TRAINER</div>
-      <div class="brand-sub" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Portugués... · Nexus Labs</div>
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-50 bg-[#10141a]/85 backdrop-blur-xl border-b border-white/5">
+  <nav class="flex justify-between items-center w-full px-6 py-2 max-w-[1440px] mx-auto gap-4">
+
+    <!-- LOGO -->
+    <a href="#hero" class="flex-shrink-0 flex items-center">
+      <svg viewBox="712 82 500 162" width="auto" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="hc"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="hv"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="hm"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <polygon points="792,88 864,126 792,164 720,126" fill="rgba(0,201,255,0.07)" stroke="#00C9FF" stroke-width="2" filter="url(#hc)"/>
+        <polygon points="864,126 864,202 792,240 792,164" fill="rgba(123,97,255,0.07)" stroke="#7B61FF" stroke-width="2" filter="url(#hv)" opacity="0.85"/>
+        <polygon points="720,126 792,164 792,240 720,202" fill="rgba(255,45,120,0.05)" stroke="#FF2D78" stroke-width="2" filter="url(#hm)" opacity="0.6"/>
+        <line x1="792" y1="164" x2="792" y2="240" stroke="#00C9FF" stroke-width="1.5" opacity="0.35"/>
+        <line x1="864" y1="126" x2="864" y2="202" stroke="#7B61FF" stroke-width="2" opacity="0.6"/>
+        <line x1="720" y1="126" x2="720" y2="202" stroke="#FF2D78" stroke-width="2" opacity="0.45"/>
+        <circle cx="792" cy="88"  r="4.5" fill="#00C9FF" filter="url(#hc)"/>
+        <circle cx="864" cy="126" r="4"   fill="#7B61FF" filter="url(#hv)"/>
+        <circle cx="720" cy="126" r="4"   fill="#FF2D78" filter="url(#hm)"/>
+        <circle cx="792" cy="164" r="3.5" fill="#00C9FF" opacity="0.55"/>
+        <line x1="882" y1="96" x2="882" y2="228" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <text x="898" y="162" font-family="'Space Grotesk','Helvetica Neue',Arial,sans-serif" font-size="52" letter-spacing="1" fill="#E6EDF3" dominant-baseline="middle">
+          <tspan font-weight="600">Nexus </tspan><tspan font-weight="300" fill="#8B949E">Labs </tspan><tspan font-weight="600" fill="#00C9FF">AI</tspan>
+        </text>
+        <text x="901" y="210" font-family="'JetBrains Mono','Courier New',monospace" font-weight="400" font-size="16" letter-spacing="6" fill="#00C9FF" opacity="0.65">.dev</text>
+      </svg>
+    </a>
+
+    <!-- NAV -->
+    <div class="hidden md:flex items-center gap-7">
+      <a class="text-[#00C9FF] font-bold border-b border-[#00C9FF] pb-1 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest" href="#hero" data-i18n="nav_home">INICIO</a>
+      <a class="text-zinc-500 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest hover:text-[#00C9FF] transition-all" href="#lab" data-i18n="nav_projects">PROYECTOS</a>
+      <a class="text-zinc-500 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest hover:text-[#00C9FF] transition-all" href="#stack" data-i18n="nav_stack">STACK</a>
+    </div>
+
+    <!-- LANG + CTA -->
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1">
+        <button class="lang-btn active" id="btn-es">ES</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" id="btn-en">EN</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" id="btn-pt">PT</button>
+      </div>
+      <a id="btn-connect" href="#contact" class="bg-primary-container text-on-primary px-4 py-2 font-label text-[9px] tracking-widest uppercase font-bold transition-transform active:scale-95" data-i18n="nav_cta">CONECTAR</a>
+    </div>
+  </nav>
+</header>
+
+<main class="pt-24 min-h-screen grid-bg">
+
+  <!-- HERO -->
+  <section id="hero" class="relative px-8 py-24 max-w-[1440px] mx-auto overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-l from-primary-container/20 to-transparent"></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-8">
+        <div class="inline-flex items-center gap-4 bg-surface-container-high px-4 py-1.5 border-l-2 border-primary-container">
+          <span class="font-label text-[10px] tracking-[0.2em] text-primary" data-i18n="hero_status">ESTADO: SISTEMA_ACTIVO</span>
+          <div class="w-2 h-2 rounded-full bg-primary status-dot"></div>
+        </div>
+        <h1 class="text-6xl md:text-8xl font-headline font-bold tracking-tighter text-white leading-none">
+          Nexus Labs <span class="text-primary-container">AI</span><span class="text-secondary opacity-50">.dev</span>
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-xl font-light leading-relaxed" data-i18n="hero_desc">
+          Laboratorio personal de tecnología. Proyectos reales, aprendizaje continuo y código con propósito — por Fernando, profesional de IT con enfoque en ciberseguridad.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="#lab" class="bg-primary-container text-on-primary px-8 py-4 font-label text-sm font-bold tracking-widest uppercase hover:shadow-[0_0_20px_rgba(0,201,255,0.4)] transition-all" data-i18n="hero_cta1">VER_PROYECTOS</a>
+          <a href="#contact" class="border border-outline-variant px-8 py-4 font-label text-sm font-bold tracking-widest uppercase hover:bg-white/5 transition-all text-white" data-i18n="hero_cta2">CONTACTO</a>
+        </div>
+      </div>
+      <!-- Cube -->
+      <div class="lg:col-span-5 relative flex justify-center">
+        <div class="relative w-72 h-72">
+          <div class="absolute inset-0 bg-secondary-container/20 blur-[100px] rounded-full"></div>
+          <div class="relative z-10 w-full h-full flex items-center justify-center">
+            <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-64 h-64 drop-shadow-[0_0_24px_rgba(0,212,255,0.25)]">
+              <defs>
+                <filter id="gc" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <filter id="gv" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <filter id="gm" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <polygon points="140,50 220,95 140,140 60,95" fill="rgba(0,212,255,0.08)" stroke="#00D4FF" stroke-width="1.5" filter="url(#gc)"/>
+              <line x1="140" y1="50" x2="140" y2="140" stroke="#00D4FF" stroke-width="0.6" opacity="0.35"/>
+              <line x1="60" y1="95" x2="220" y2="95" stroke="#00D4FF" stroke-width="0.6" opacity="0.35"/>
+              <line x1="100" y1="72" x2="180" y2="72" stroke="#00D4FF" stroke-width="0.4" opacity="0.2"/>
+              <line x1="100" y1="118" x2="180" y2="118" stroke="#00D4FF" stroke-width="0.4" opacity="0.2"/>
+              <polygon points="60,95 140,140 140,230 60,185" fill="rgba(123,47,190,0.12)" stroke="#7B2FBE" stroke-width="1.5" filter="url(#gv)"/>
+              <line x1="60" y1="140" x2="140" y2="185" stroke="#7B2FBE" stroke-width="0.4" opacity="0.25"/>
+              <line x1="60" y1="162" x2="140" y2="207" stroke="#7B2FBE" stroke-width="0.4" opacity="0.2"/>
+              <line x1="100" y1="118" x2="100" y2="208" stroke="#7B2FBE" stroke-width="0.4" opacity="0.2"/>
+              <polygon points="140,140 220,95 220,185 140,230" fill="rgba(233,30,140,0.10)" stroke="#E91E8C" stroke-width="1.5" filter="url(#gm)"/>
+              <line x1="220" y1="140" x2="140" y2="185" stroke="#E91E8C" stroke-width="0.4" opacity="0.25"/>
+              <line x1="220" y1="162" x2="140" y2="207" stroke="#E91E8C" stroke-width="0.4" opacity="0.2"/>
+              <line x1="180" y1="118" x2="180" y2="208" stroke="#E91E8C" stroke-width="0.4" opacity="0.2"/>
+              <line x1="140" y1="50" x2="220" y2="95" stroke="#00D4FF" stroke-width="1.8" opacity="0.9" filter="url(#gc)"/>
+              <line x1="140" y1="50" x2="60" y2="95" stroke="#00D4FF" stroke-width="1.8" opacity="0.9" filter="url(#gc)"/>
+              <line x1="60" y1="95" x2="60" y2="185" stroke="#7B2FBE" stroke-width="1.8" opacity="0.9" filter="url(#gv)"/>
+              <line x1="220" y1="95" x2="220" y2="185" stroke="#E91E8C" stroke-width="1.8" opacity="0.9" filter="url(#gm)"/>
+              <line x1="60" y1="185" x2="140" y2="230" stroke="#7B2FBE" stroke-width="1.8" opacity="0.9" filter="url(#gv)"/>
+              <line x1="220" y1="185" x2="140" y2="230" stroke="#E91E8C" stroke-width="1.8" opacity="0.9" filter="url(#gm)"/>
+              <line x1="140" y1="140" x2="60" y2="95" stroke="#00D4FF" stroke-width="0.8" opacity="0.4"/>
+              <line x1="140" y1="140" x2="220" y2="95" stroke="#00D4FF" stroke-width="0.8" opacity="0.4"/>
+              <line x1="140" y1="140" x2="140" y2="230" stroke="#9B6FDF" stroke-width="0.8" opacity="0.4"/>
+              <circle cx="140" cy="50"  r="3"   fill="#00D4FF" filter="url(#gc)"/>
+              <circle cx="60"  cy="95"  r="2.5" fill="#7B2FBE" filter="url(#gv)"/>
+              <circle cx="220" cy="95"  r="2.5" fill="#E91E8C" filter="url(#gm)"/>
+              <circle cx="140" cy="140" r="2.5" fill="#00D4FF" opacity="0.6"/>
+              <circle cx="60"  cy="185" r="2.5" fill="#7B2FBE" filter="url(#gv)"/>
+              <circle cx="220" cy="185" r="2.5" fill="#E91E8C" filter="url(#gm)"/>
+              <circle cx="140" cy="230" r="3"   fill="#9B6FDF" filter="url(#gv)"/>
+            </svg>
+          </div>
+          <div class="absolute -top-4 -right-4 font-label text-[10px] text-primary opacity-40">v0.9.0_STABLE</div>
+          <div class="absolute -bottom-4 -left-4 font-label text-[10px] text-secondary opacity-40">19.4326N · 99.1332W</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT + EDUCATION -->
+  <section class="px-8 py-20 max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 bg-surface-container-low p-8 border border-white/5 relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-4 opacity-10">
+          <span class="material-symbols-outlined text-8xl">fingerprint</span>
+        </div>
+        <div class="relative z-10 space-y-5">
+          <div class="w-12 h-1 bg-primary-container"></div>
+          <h2 class="text-3xl font-headline font-bold text-white" data-i18n="about_title">Sobre el Lab</h2>
+          <p class="text-on-surface-variant font-light leading-relaxed max-w-2xl" data-i18n="about_desc">
+            Nexus Labs AI es el espacio de Fernando — profesional de IT con más de 4 años en soporte técnico global y estudiante de Licenciatura en Informática. Aquí viven los proyectos en construcción, los experimentos y el aprendizaje en tiempo real.
+          </p>
+          <div class="flex gap-10 pt-2">
+            <div>
+              <div class="font-label text-[10px] text-primary uppercase tracking-[0.2em] mb-1" data-i18n="about_loc_lbl">UBICACIÓN</div>
+              <div class="text-white font-medium" data-i18n="about_loc_val">México · Remoto</div>
+            </div>
+            <div>
+              <div class="font-label text-[10px] text-primary uppercase tracking-[0.2em] mb-1" data-i18n="about_role_lbl">ROL</div>
+              <div class="text-white font-medium" data-i18n="about_role_val">IT Support · Service Desk</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-surface-container-high p-8 border border-white/5 flex flex-col justify-between">
+        <div class="space-y-4">
+          <span class="material-symbols-outlined text-primary-container text-4xl">school</span>
+          <h3 class="text-xl font-headline font-bold text-white" data-i18n="edu_title">Formación</h3>
+          <div class="space-y-1">
+            <p class="text-sm font-label text-primary" data-i18n="edu_lbl1">01 // GRADO</p>
+            <p class="text-on-surface font-medium" data-i18n="edu_degree">Licenciatura en Informática</p>
+          </div>
+          <div class="space-y-2 pt-3">
+            <p class="text-sm font-label text-primary" data-i18n="edu_lbl2">02 // CERTIFICACIONES</p>
+            <p class="text-on-surface font-medium">CompTIA Linux+</p>
+            <p class="text-on-surface font-medium">CompTIA Security+</p>
+            <p class="text-on-surface font-medium">CompTIA Pentest+</p>
+          </div>
+        </div>
+        <div class="pt-6 border-t border-white/5 mt-6">
+          <p class="text-xs text-on-surface-variant italic" data-i18n="edu_note">Preparando certificaciones CompTIA con enfoque en seguridad ofensiva y sistemas Linux.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LAB -->
+  <section id="lab" class="px-8 py-24 max-w-[1440px] mx-auto bg-surface-container-lowest/50 border-y border-white/5">
+    <div class="flex flex-col md:flex-row gap-12 items-start">
+      <div class="md:w-1/3 self-start space-y-4">
+        <h2 class="text-4xl font-headline font-bold text-white tracking-tight" data-i18n="lab_title">The Lab</h2>
+        <p class="font-label text-xs text-secondary-container tracking-widest uppercase font-bold">Experimental_Zone</p>
+        <p class="text-on-surface-variant leading-relaxed" data-i18n="lab_desc">Nada está terminado aquí todavía — y ese es el punto. Proyectos reales en distintas etapas de construcción.</p>
+      </div>
+      <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <!-- 001 Java -->
+        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors">
+          <div class="flex justify-between items-start mb-5">
+            <span class="font-label text-[10px] text-zinc-500">PROJECT_001</span>
+            <span class="material-symbols-outlined text-primary-container text-sm">construction</span>
+          </div>
+          <h4 class="text-lg font-headline font-bold text-white mb-2">Java_Learning_Repo</h4>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p1_desc">Repositorio de aprendizaje estructurado en Java. Ejercicios y fundamentos de programación orientada a objetos.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_progress">En_Progreso</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">Java</span>
+          </div>
+          <a href="https://github.com/NexusLabsAI-Dev/java-learning" target="_blank" rel="noopener noreferrer" class="proj-btn">
+            <span class="material-symbols-outlined text-xs">open_in_new</span>
+            <span data-i18n="btn_repo">VER_REPO</span>
+          </a>
+        </div>
+
+        <!-- 002 Brand -->
+        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors">
+          <div class="flex justify-between items-start mb-5">
+            <span class="font-label text-[10px] text-zinc-500">PROJECT_002</span>
+            <span class="material-symbols-outlined text-primary-container text-sm">hub</span>
+          </div>
+          <h4 class="text-lg font-headline font-bold text-white mb-2">Nexus_Labs_AI_Brand</h4>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p2_desc">Marca digital de contenido enfocada en IA. Identidad visual completa y presencia en nexuslabsai.dev.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
+          </div>
+        </div>
+
+        <!-- 003 Academia OS -->
+        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-28 h-28 bg-secondary-container/5 blur-3xl pointer-events-none"></div>
+          <div class="flex justify-between items-start mb-5">
+            <span class="font-label text-[10px] text-zinc-500">PROJECT_003</span>
+            <span class="material-symbols-outlined text-primary-container text-sm">school</span>
+          </div>
+          <h4 class="text-lg font-headline font-bold text-white mb-2">Academia_OS</h4>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p3_desc">Sistema de gestión académica personal. Panel, calendario, tareas por materia, integración con Telegram y autenticación Google. Desplegado en Firebase.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">Firebase</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">Telegram</span>
+          </div>
+          <a href="https://academiaos.nexuslabsai.dev" target="_blank" rel="noopener noreferrer" class="proj-btn">
+            <span class="material-symbols-outlined text-xs">open_in_new</span>
+            <span data-i18n="btn_launch">ABRIR_APP</span>
+          </a>
+        </div>
+
+        <!-- 004 SQL Trainer -->
+        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-28 h-28 bg-primary-container/5 blur-3xl pointer-events-none"></div>
+          <div class="flex justify-between items-start mb-5">
+            <span class="font-label text-[10px] text-zinc-500">PROJECT_004</span>
+            <span class="material-symbols-outlined text-primary-container text-sm">table_chart</span>
+          </div>
+          <h4 class="text-lg font-headline font-bold text-white mb-2">SQL_Interactive_Trainer</h4>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p4_desc">Herramienta de práctica interactiva de SQL con motor SQLite en el navegador. 57 ejercicios, 13 bloques y validación automática de queries.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">SQL</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">PostgreSQL</span>
+          </div>
+          <a href="https://postgresql.nexuslabsai.dev" target="_blank" rel="noopener noreferrer" class="proj-btn">
+            <span class="material-symbols-outlined text-xs">open_in_new</span>
+            <span data-i18n="btn_launch">ABRIR_APP</span>
+          </a>
+        </div>
+
+        <!-- 005 Rent Receipt Generator -->
+        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-28 h-28 bg-tertiary-container/5 blur-3xl pointer-events-none"></div>
+          <div class="flex justify-between items-start mb-5">
+            <span class="font-label text-[10px] text-zinc-500">PROJECT_005</span>
+            <span class="material-symbols-outlined text-primary-container text-sm">receipt_long</span>
+          </div>
+          <h4 class="text-lg font-headline font-bold text-white mb-2">Rent_Receipt_Generator</h4>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p5_desc">Generador de recibos de renta en el navegador. Folio autoincremental con localStorage, exportación a PDF con jsPDF. Sin backend ni dependencias externas.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">jsPDF</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">Vanilla JS</span>
+          </div>
+          <a href="https://rentas.nexuslabsai.dev/" target="_blank" rel="noopener noreferrer" class="proj-btn">
+            <span class="material-symbols-outlined text-xs">open_in_new</span>
+            <span data-i18n="btn_launch">ABRIR_APP</span>
+          </a>
+        </div>
+
+        <!-- 006 Mexitán POS -->
+        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-28 h-28 bg-secondary-container/5 blur-3xl pointer-events-none"></div>
+          <div class="flex justify-between items-start mb-5">
+            <span class="font-label text-[10px] text-zinc-500">PROJECT_006</span>
+            <span class="material-symbols-outlined text-primary-container text-sm">point_of_sale</span>
+          </div>
+          <h4 class="text-lg font-headline font-bold text-white mb-2">Mexitán_POS</h4>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p6_desc">Sistema punto de venta PWA para negocio local. Gestión de productos, ventas y reportes con Firebase Firestore y notificaciones por correo vía EmailJS.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
+            <span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-container-highest text-[9px] font-label text-zinc-500 uppercase tracking-tighter" data-i18n="status_private"><span class="material-symbols-outlined text-[10px]">lock</span>Privado</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">Firebase</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">PWA</span>
+          </div>
+        </div>
+
+        <!-- 007 Portugués Interactive Trainer -->
+        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-28 h-28 bg-primary-container/5 blur-3xl pointer-events-none"></div>
+          <div class="flex justify-between items-start mb-5">
+            <span class="font-label text-[10px] text-zinc-500">PROJECT_007</span>
+            <span class="material-symbols-outlined text-primary-container text-sm">translate</span>
+          </div>
+          <h4 class="text-lg font-headline font-bold text-white mb-2">Portugués_Interactive_Trainer</h4>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p7_desc">Entrenador interactivo de conjugación en portugués. 30 verbos, 10 tiempos verbales y niveles A1–C2. Sin backend ni dependencias externas.</p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">Vanilla JS</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">A1–C2</span>
+          </div>
+          <a href="https://portugues.nexuslabsai.dev/" target="_blank" rel="noopener noreferrer" class="proj-btn">
+            <span class="material-symbols-outlined text-xs">open_in_new</span>
+            <span data-i18n="btn_launch">ABRIR_APP</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="px-8 py-24 max-w-[1440px] mx-auto">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-headline font-bold text-white mb-2" data-i18n="stack_title">Stack & Herramientas</h2>
+      <div class="w-16 h-0.5 bg-primary-container mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div class="group bg-surface-container-low p-8 border border-white/5 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary-container transition-colors">coffee</span>
+        <span class="font-label text-xs tracking-widest text-zinc-400">JAVA</span>
+      </div>
+      <div class="group bg-surface-container-low p-8 border border-white/5 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary-container transition-colors">fork_right</span>
+        <span class="font-label text-xs tracking-widest text-zinc-400">GIT_SCM</span>
+      </div>
+      <div class="group bg-surface-container-low p-8 border border-white/5 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary-container transition-colors">storage</span>
+        <span class="font-label text-xs tracking-widest text-zinc-400">SQL · POSTGRES</span>
+      </div>
+      <div class="group bg-surface-container-low p-8 border border-white/5 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary-container transition-colors">code</span>
+        <span class="font-label text-xs tracking-widest text-zinc-400">VS_CODE</span>
+      </div>
+      <div class="group bg-surface-container-low p-8 border border-white/5 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary-container transition-colors">cloud_done</span>
+        <span class="font-label text-xs tracking-widest text-zinc-400">MS_365</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="px-8 py-24 max-w-[1440px] mx-auto">
+    <div class="bg-gradient-to-br from-secondary-container/20 to-primary-container/10 p-12 relative overflow-hidden">
+      <div class="absolute inset-0 grid-bg opacity-20"></div>
+      <div class="relative z-10 text-center space-y-8">
+        <h2 class="text-4xl md:text-5xl font-headline font-bold text-white tracking-tighter" data-i18n="contact_title">¿Iniciamos sesión?</h2>
+        <p class="text-on-surface-variant font-light max-w-md mx-auto" data-i18n="contact_desc">¿Tienes un proyecto, una idea o simplemente quieres conectar? Abre un canal.</p>
+        <div class="flex flex-col items-center gap-6">
+          <!-- Email rendered by JS to avoid Cloudflare obfuscation -->
+          <p id="contact-email-display" class="font-label text-primary-container text-sm tracking-widest"></p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a id="contact-email-btn" href="#" class="flex items-center gap-2 bg-primary-container text-on-primary px-6 py-3 font-label text-[10px] tracking-widest uppercase font-bold hover:shadow-[0_0_20px_rgba(0,201,255,0.4)] transition-all">
+              <span class="material-symbols-outlined text-sm">alternate_email</span>
+              <span data-i18n="contact_btn_email">ENVIAR_MENSAJE</span>
+            </a>
+            <a href="https://github.com/NexusLabsAI-Dev" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 border border-outline-variant px-6 py-3 font-label text-[10px] tracking-widest uppercase font-bold hover:bg-white/5 transition-all text-white">
+              <span class="material-symbols-outlined text-sm">code_blocks</span>
+              <span data-i18n="contact_btn_gh">VER_GITHUB</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-[#10141a] border-t border-white/5 w-full py-10 px-8">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-4 max-w-[1440px] mx-auto">
+    <div class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.15em] text-zinc-500">
+      © 2026 NEXUS_LABS_AI // BUILD_VER: 0.9.0-STABLE
+    </div>
+    <div class="flex gap-8">
+      <a class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.15em] text-zinc-500 hover:text-white transition-colors" href="#" data-i18n="footer_logs">SYS_LOGS</a>
+      <a class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.15em] text-zinc-500 hover:text-white transition-colors" href="#" data-i18n="footer_privacy">PRIVACIDAD</a>
+      <a id="footer-contact-link" href="#" class="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.15em] text-zinc-500 hover:text-white transition-colors">CONTACT</a>
     </div>
   </div>
-  <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom: 0.6rem;">
-    <input type="text" id="search-input" placeholder="Buscar verbo, frase..." oninput="handleSearch(this.value)" style="padding:0.4rem 0.6rem; border-radius:4px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-family:inherit; font-size:0.75rem; width:130px;">
-    <button onclick="toggleTheme()" id="theme-btn" style="background:transparent; border:1px solid var(--border); color:var(--text); padding:0.35rem 0.5rem; border-radius:4px; font-size:0.9rem; cursor:pointer;" title="Cambiar tema">🌗</button>
-  </div>
-  <div id="nav"></div>
-</div>
+</footer>
 
-<div id="main"><div id="content"></div></div>
+<script>
+// ── EMAIL: construido por JS para evitar obfuscation de Cloudflare ──
+(function(){
+  var u = 'contact';
+  var d = 'nexuslabsai.dev';
+  var full = u + '@' + d;
+  var mailto = 'mailto:' + full;
 
-<div id="ftr">
-  PT_TRAINER · Nexus Labs AI · 30 verbos · 10 tempos verbais · A1–C2<br>
-  <span style="color:var(--border)">* «vós» es arcaico en el Brasil moderno — en el habla real se usa «vocês»</span>
-</div>
+  var display = document.getElementById('contact-email-display');
+  if(display) display.textContent = full;
 
-<script src="script.js"></script>
+  var btn = document.getElementById('contact-email-btn');
+  if(btn) btn.href = mailto;
+
+  var footerLink = document.getElementById('footer-contact-link');
+  if(footerLink) footerLink.href = mailto;
+})();
+
+// ── SCROLL: Conectar button ──
+document.getElementById('btn-connect').addEventListener('click', function(e){
+  e.preventDefault();
+  var target = document.getElementById('contact');
+  if(target) target.scrollIntoView({ behavior: 'smooth' });
+});
+
+// ── I18N ──
+var T = {
+  es:{
+    nav_home:"INICIO", nav_projects:"PROYECTOS", nav_stack:"STACK", nav_cta:"CONECTAR",
+    hero_status:"ESTADO: SISTEMA_ACTIVO",
+    hero_desc:"Laboratorio personal de tecnología. Proyectos reales, aprendizaje continuo y código con propósito — por Fernando, profesional de IT con enfoque en ciberseguridad.",
+    hero_cta1:"VER_PROYECTOS", hero_cta2:"CONTACTO",
+    about_title:"Sobre el Lab",
+    about_desc:"Nexus Labs AI es el espacio de Fernando — profesional de IT con más de 4 años en soporte técnico global y estudiante de Licenciatura en Informática. Aquí viven los proyectos en construcción, los experimentos y el aprendizaje en tiempo real.",
+    about_loc_lbl:"UBICACIÓN", about_loc_val:"México · Remoto",
+    about_role_lbl:"ROL", about_role_val:"IT Support · Service Desk",
+    edu_title:"Formación", edu_lbl1:"01 // GRADO", edu_degree:"Licenciatura en Informática",
+    edu_lbl2:"02 // CERTIFICACIONES",
+    edu_note:"Preparando certificaciones CompTIA con enfoque en seguridad ofensiva y sistemas Linux.",
+    lab_title:"The Lab", lab_desc:"Nada está terminado aquí todavía — y ese es el punto. Proyectos reales en distintas etapas de construcción.",
+    p1_desc:"Repositorio de aprendizaje estructurado en Java. Ejercicios y fundamentos de programación orientada a objetos.",
+    p2_desc:"Marca digital de contenido enfocada en IA. Identidad visual completa y presencia en nexuslabsai.dev.",
+    p3_desc:"Sistema de gestión académica personal. Panel, calendario, tareas por materia, integración con Telegram y autenticación Google.",
+    p4_desc:"Herramienta de práctica interactiva de SQL con motor SQLite en el navegador. 57 ejercicios, 13 bloques y validación automática.",
+    p5_desc:"Generador de recibos de renta en el navegador. Folio autoincremental con localStorage, exportación a PDF con jsPDF. Sin backend ni dependencias externas.",
+    p6_desc:"Sistema punto de venta PWA para negocio local. Gestión de productos, ventas y reportes con Firebase Firestore y notificaciones por correo vía EmailJS.",
+    p7_desc:"Entrenador interactivo de conjugación en portugués. 30 verbos, 10 tiempos verbales y niveles A1–C2. Sin backend ni dependencias externas.",
+    status_progress:"En_Progreso", status_active:"Activo", status_private:"Privado",
+    btn_repo:"VER_REPO", btn_launch:"ABRIR_APP",
+    stack_title:"Stack & Herramientas",
+    contact_title:"¿Iniciamos sesión?",
+    contact_desc:"¿Tienes un proyecto, una idea o simplemente quieres conectar? Abre un canal.",
+    contact_btn_email:"ENVIAR_MENSAJE", contact_btn_gh:"VER_GITHUB",
+    footer_logs:"SYS_LOGS", footer_privacy:"PRIVACIDAD"
+  },
+  en:{
+    nav_home:"HOME", nav_projects:"PROJECTS", nav_stack:"STACK", nav_cta:"CONNECT",
+    hero_status:"STATUS: SYSTEM_ACTIVE",
+    hero_desc:"Personal technology lab. Real projects, continuous learning and purposeful code — by Fernando, IT professional focused on cybersecurity.",
+    hero_cta1:"EXPLORE_PROJECTS", hero_cta2:"CONTACT",
+    about_title:"About the Lab",
+    about_desc:"Nexus Labs AI is Fernando's space — an IT professional with over 4 years in global tech support and a Computer Science student. This is where projects, experiments and real-time learning live.",
+    about_loc_lbl:"LOCATION", about_loc_val:"Mexico · Remote",
+    about_role_lbl:"ROLE", about_role_val:"IT Support · Service Desk",
+    edu_title:"Education", edu_lbl1:"01 // DEGREE", edu_degree:"Bachelor's in Computer Science",
+    edu_lbl2:"02 // CERTIFICATIONS",
+    edu_note:"Preparing CompTIA certifications focused on offensive security and Linux systems.",
+    lab_title:"The Lab", lab_desc:"Nothing is finished here yet — and that's the point. Real projects at different stages of construction.",
+    p1_desc:"Structured Java learning repository. Exercises and fundamentals of object-oriented programming.",
+    p2_desc:"Digital content brand focused on AI. Complete visual identity and presence at nexuslabsai.dev.",
+    p3_desc:"Personal academic management system. Dashboard, calendar, tasks by subject, Telegram integration and Google authentication.",
+    p4_desc:"Interactive SQL practice tool with SQLite engine in the browser. 57 exercises, 13 blocks and automatic query validation.",
+    p5_desc:"Browser-based rent receipt generator. Auto-incremental folio via localStorage and PDF export with jsPDF. No backend or external dependencies.",
+    p6_desc:"PWA point-of-sale system for a local business. Product, sales and reporting management with Firebase Firestore and email notifications via EmailJS.",
+    p7_desc:"Interactive Portuguese conjugation trainer. 30 verbs, 10 verb tenses and A1–C2 levels. No backend or external dependencies.",
+    status_progress:"In_Progress", status_active:"Active", status_private:"Private",
+    btn_repo:"VIEW_REPO", btn_launch:"LAUNCH_APP",
+    stack_title:"Stack & Tools",
+    contact_title:"Ready to initialize?",
+    contact_desc:"Have a project, an idea, or just want to connect? Open a channel.",
+    contact_btn_email:"SEND_MESSAGE", contact_btn_gh:"VIEW_GITHUB",
+    footer_logs:"SYS_LOGS", footer_privacy:"PRIVACY"
+  },
+  pt:{
+    nav_home:"INÍCIO", nav_projects:"PROJETOS", nav_stack:"STACK", nav_cta:"CONECTAR",
+    hero_status:"STATUS: SISTEMA_ATIVO",
+    hero_desc:"Laboratório pessoal de tecnologia. Projetos reais, aprendizado contínuo e código com propósito — por Fernando, profissional de TI com foco em cibersegurança.",
+    hero_cta1:"VER_PROJETOS", hero_cta2:"CONTATO",
+    about_title:"Sobre o Lab",
+    about_desc:"Nexus Labs AI é o espaço de Fernando — profissional de TI com mais de 4 anos em suporte técnico global e estudante de Bacharelado em Informática. Aqui vivem os projetos em construção, os experimentos e o aprendizado em tempo real.",
+    about_loc_lbl:"LOCALIZAÇÃO", about_loc_val:"México · Remoto",
+    about_role_lbl:"FUNÇÃO", about_role_val:"Suporte TI · Service Desk",
+    edu_title:"Formação", edu_lbl1:"01 // GRAU", edu_degree:"Bacharelado em Informática",
+    edu_lbl2:"02 // CERTIFICAÇÕES",
+    edu_note:"Preparando certificações CompTIA com foco em segurança ofensiva e sistemas Linux.",
+    lab_title:"The Lab", lab_desc:"Nada está terminado aqui ainda — e esse é o ponto. Projetos reais em diferentes etapas de construção.",
+    p1_desc:"Repositório de aprendizado estruturado em Java. Exercícios e fundamentos de programação orientada a objetos.",
+    p2_desc:"Marca de conteúdo digital focada em IA. Identidade visual completa e presença em nexuslabsai.dev.",
+    p3_desc:"Sistema de gestão acadêmica pessoal. Painel, calendário, tarefas por matéria, integração com Telegram e autenticação Google.",
+    p4_desc:"Ferramenta de prática interativa de SQL com motor SQLite no navegador. 57 exercícios, 13 blocos e validação automática.",
+    p5_desc:"Gerador de recibos de aluguel no navegador. Numeração automática com localStorage e exportação para PDF via jsPDF. Sem backend nem dependências externas.",
+    p6_desc:"Sistema de ponto de venda PWA para negócio local. Gestão de produtos, vendas e relatórios com Firebase Firestore e notificações por e-mail via EmailJS.",
+    p7_desc:"Treinador interativo de conjugação em português. 30 verbos, 10 tempos verbais e níveis A1–C2. Sem backend nem dependências externas.",
+    status_progress:"Em_Progresso", status_active:"Ativo", status_private:"Privado",
+    btn_repo:"VER_REPO", btn_launch:"ABRIR_APP",
+    stack_title:"Stack & Ferramentas",
+    contact_title:"Pronto para iniciar?",
+    contact_desc:"Tem um projeto, uma ideia ou só quer conectar? Abra um canal.",
+    contact_btn_email:"ENVIAR_MENSAGEM", contact_btn_gh:"VER_GITHUB",
+    footer_logs:"SYS_LOGS", footer_privacy:"PRIVACIDADE"
+  }
+};
+
+function setLang(lang){
+  var t = T[lang];
+  if(!t) return;
+  var els = document.querySelectorAll('[data-i18n]');
+  for(var i=0; i<els.length; i++){
+    var k = els[i].getAttribute('data-i18n');
+    if(t[k] !== undefined) els[i].textContent = t[k];
+  }
+  document.documentElement.lang = lang;
+  ['es','en','pt'].forEach(function(l){
+    var b = document.getElementById('btn-'+l);
+    if(b) b.classList.toggle('active', l === lang);
+  });
+  try{ localStorage.setItem('nlai_lang', lang); }catch(e){}
+}
+
+// Botones de idioma con addEventListener
+document.getElementById('btn-es').addEventListener('click', function(){ setLang('es'); });
+document.getElementById('btn-en').addEventListener('click', function(){ setLang('en'); });
+document.getElementById('btn-pt').addEventListener('click', function(){ setLang('pt'); });
+
+// Restaurar idioma guardado
+try{
+  var saved = localStorage.getItem('nlai_lang');
+  if(saved && saved !== 'es') setLang(saved);
+}catch(e){}
+</script>
 </body>
 </html>
-
