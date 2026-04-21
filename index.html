@@ -275,135 +275,47 @@ body{min-height:max(884px,100dvh)}
   <section id="lab" class="px-8 py-24 max-w-[1440px] mx-auto bg-surface-container-lowest/50 border-y border-white/5">
     <div class="flex flex-col md:flex-row gap-12 items-start">
       <div class="md:w-1/3 self-start space-y-4">
-        <h2 class="text-4xl font-headline font-bold text-white tracking-tight" data-i18n="lab_title">The Lab</h2>
-        <p class="font-label text-xs text-secondary-container tracking-widest uppercase font-bold">Experimental_Zone</p>
-        <p class="text-on-surface-variant leading-relaxed" data-i18n="lab_desc">Nada está terminado aquí todavía — y ese es el punto. Proyectos reales en distintas etapas de construcción.</p>
+        <h2 class="text-4xl font-headline font-bold text-white tracking-tight" data-i18n="lab_title">Productos</h2>
+        <p class="font-label text-xs text-secondary-container tracking-widest uppercase font-bold">Soluciones_Activas</p>
+        <p class="text-on-surface-variant leading-relaxed" data-i18n="lab_desc">Software funcional construido para resolver problemas reales. Disponible ahora.</p>
       </div>
       <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-        <!-- 001 Java -->
-        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors">
+        <!-- Cafetería POS -->
+        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-28 h-28 bg-primary-container/5 blur-3xl pointer-events-none"></div>
           <div class="flex justify-between items-start mb-5">
-            <span class="font-label text-[10px] text-zinc-500">PROJECT_001</span>
-            <span class="material-symbols-outlined text-primary-container text-sm">construction</span>
+            <span class="font-label text-[10px] text-zinc-500">PRODUCT_001</span>
+            <span class="material-symbols-outlined text-primary-container text-sm">point_of_sale</span>
           </div>
-          <h4 class="text-lg font-headline font-bold text-white mb-2">Java_Learning_Repo</h4>
-          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p1_desc">Repositorio de aprendizaje estructurado en Java. Ejercicios y fundamentos de programación orientada a objetos.</p>
+          <h4 class="text-lg font-headline font-bold text-white mb-2">Cafetería_POS</h4>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p1_desc">Sistema de punto de venta para restaurantes, taquerías y cafeterías. Gestión de mesas, menú personalizable, cobro con propina y reportes del día.</p>
           <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_progress">En_Progreso</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">Java</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">PWA</span>
+            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">Firebase</span>
           </div>
-          <a href="https://github.com/NexusLabsAI-Dev/java-learning" target="_blank" rel="noopener noreferrer" class="proj-btn">
+          <a href="https://pos.nexuslabsai.dev" target="_blank" rel="noopener noreferrer" class="proj-btn">
             <span class="material-symbols-outlined text-xs">open_in_new</span>
-            <span data-i18n="btn_repo">VER_REPO</span>
+            <span data-i18n="btn_launch">PROBAR_DEMO</span>
           </a>
         </div>
 
-        <!-- 002 Brand -->
-        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors">
-          <div class="flex justify-between items-start mb-5">
-            <span class="font-label text-[10px] text-zinc-500">PROJECT_002</span>
-            <span class="material-symbols-outlined text-primary-container text-sm">hub</span>
-          </div>
-          <h4 class="text-lg font-headline font-bold text-white mb-2">Nexus_Labs_AI_Brand</h4>
-          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p2_desc">Marca digital de contenido enfocada en IA. Identidad visual completa y presencia en nexuslabsai.dev.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
-          </div>
-        </div>
-
-        <!-- 003 Academia OS -->
+        <!-- Academia OS -->
         <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
           <div class="absolute top-0 right-0 w-28 h-28 bg-secondary-container/5 blur-3xl pointer-events-none"></div>
           <div class="flex justify-between items-start mb-5">
-            <span class="font-label text-[10px] text-zinc-500">PROJECT_003</span>
+            <span class="font-label text-[10px] text-zinc-500">PRODUCT_002</span>
             <span class="material-symbols-outlined text-primary-container text-sm">school</span>
           </div>
           <h4 class="text-lg font-headline font-bold text-white mb-2">Academia_OS</h4>
-          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p3_desc">Sistema de gestión académica personal. Panel, calendario, tareas por materia, integración con Telegram y autenticación Google. Desplegado en Firebase.</p>
+          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p2_desc">Sistema de gestión académica personal. Panel, calendario, tareas por materia, integración con Telegram y autenticación Google. Desplegado en Firebase.</p>
           <div class="flex flex-wrap gap-2 mb-5">
             <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
             <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">Firebase</span>
             <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">Telegram</span>
           </div>
           <a href="https://academiaos.nexuslabsai.dev" target="_blank" rel="noopener noreferrer" class="proj-btn">
-            <span class="material-symbols-outlined text-xs">open_in_new</span>
-            <span data-i18n="btn_launch">ABRIR_APP</span>
-          </a>
-        </div>
-
-        <!-- 004 SQL Trainer -->
-        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-28 h-28 bg-primary-container/5 blur-3xl pointer-events-none"></div>
-          <div class="flex justify-between items-start mb-5">
-            <span class="font-label text-[10px] text-zinc-500">PROJECT_004</span>
-            <span class="material-symbols-outlined text-primary-container text-sm">table_chart</span>
-          </div>
-          <h4 class="text-lg font-headline font-bold text-white mb-2">SQL_Interactive_Trainer</h4>
-          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p4_desc">Herramienta de práctica interactiva de SQL con motor SQLite en el navegador. 57 ejercicios, 13 bloques y validación automática de queries.</p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">SQL</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">PostgreSQL</span>
-          </div>
-          <a href="https://postgresql.nexuslabsai.dev" target="_blank" rel="noopener noreferrer" class="proj-btn">
-            <span class="material-symbols-outlined text-xs">open_in_new</span>
-            <span data-i18n="btn_launch">ABRIR_APP</span>
-          </a>
-        </div>
-
-        <!-- 005 Rent Receipt Generator -->
-        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-28 h-28 bg-tertiary-container/5 blur-3xl pointer-events-none"></div>
-          <div class="flex justify-between items-start mb-5">
-            <span class="font-label text-[10px] text-zinc-500">PROJECT_005</span>
-            <span class="material-symbols-outlined text-primary-container text-sm">receipt_long</span>
-          </div>
-          <h4 class="text-lg font-headline font-bold text-white mb-2">Rent_Receipt_Generator</h4>
-          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p5_desc">Generador de recibos de renta en el navegador. Folio autoincremental con localStorage, exportación a PDF con jsPDF. Sin backend ni dependencias externas.</p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">jsPDF</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">Vanilla JS</span>
-          </div>
-          <a href="https://rentas.nexuslabsai.dev/" target="_blank" rel="noopener noreferrer" class="proj-btn">
-            <span class="material-symbols-outlined text-xs">open_in_new</span>
-            <span data-i18n="btn_launch">ABRIR_APP</span>
-          </a>
-        </div>
-
-        <!-- 006 Mexitán POS -->
-        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-28 h-28 bg-secondary-container/5 blur-3xl pointer-events-none"></div>
-          <div class="flex justify-between items-start mb-5">
-            <span class="font-label text-[10px] text-zinc-500">PROJECT_006</span>
-            <span class="material-symbols-outlined text-primary-container text-sm">point_of_sale</span>
-          </div>
-          <h4 class="text-lg font-headline font-bold text-white mb-2">Mexitán_POS</h4>
-          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p6_desc">Sistema punto de venta PWA para negocio local. Gestión de productos, ventas y reportes con Firebase Firestore y notificaciones por correo vía EmailJS.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
-            <span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-container-highest text-[9px] font-label text-zinc-500 uppercase tracking-tighter" data-i18n="status_private"><span class="material-symbols-outlined text-[10px]">lock</span>Privado</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">Firebase</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">PWA</span>
-          </div>
-        </div>
-
-        <!-- 007 Portugués Interactive Trainer -->
-        <div class="bg-surface-container p-6 border border-white/5 hover:border-primary-container/30 transition-colors relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-28 h-28 bg-primary-container/5 blur-3xl pointer-events-none"></div>
-          <div class="flex justify-between items-start mb-5">
-            <span class="font-label text-[10px] text-zinc-500">PROJECT_007</span>
-            <span class="material-symbols-outlined text-primary-container text-sm">translate</span>
-          </div>
-          <h4 class="text-lg font-headline font-bold text-white mb-2">Languages_Interactive_Trainer</h4>
-          <p class="text-sm text-on-surface-variant mb-4" data-i18n="p7_desc">Entrenador interactivo de conjugación en portugués, francés e italiano. 30 verbos, 10 tiempos verbales y niveles A1–C2. Sin backend ni dependencias externas.</p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-on-surface uppercase tracking-tighter" data-i18n="status_active">Activo</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-primary uppercase tracking-tighter">Vanilla JS</span>
-            <span class="px-2 py-1 bg-surface-container-highest text-[9px] font-label text-secondary uppercase tracking-tighter">A1–C2</span>
-          </div>
-          <a href="https://idiomas.nexuslabsai.dev/" target="_blank" rel="noopener noreferrer" class="proj-btn">
             <span class="material-symbols-outlined text-xs">open_in_new</span>
             <span data-i18n="btn_launch">ABRIR_APP</span>
           </a>
@@ -525,12 +437,8 @@ var T = {
     edu_note:"Preparando certificaciones CompTIA con enfoque en seguridad ofensiva y sistemas Linux.",
     lab_title:"The Lab", lab_desc:"Nada está terminado aquí todavía — y ese es el punto. Proyectos reales en distintas etapas de construcción.",
     p1_desc:"Repositorio de aprendizaje estructurado en Java. Ejercicios y fundamentos de programación orientada a objetos.",
-    p2_desc:"Marca digital de contenido enfocada en IA. Identidad visual completa y presencia en nexuslabsai.dev.",
-    p3_desc:"Sistema de gestión académica personal. Panel, calendario, tareas por materia, integración con Telegram y autenticación Google.",
-    p4_desc:"Herramienta de práctica interactiva de SQL con motor SQLite en el navegador. 57 ejercicios, 13 bloques y validación automática.",
-    p5_desc:"Generador de recibos de renta en el navegador. Folio autoincremental con localStorage, exportación a PDF con jsPDF. Sin backend ni dependencias externas.",
-    p6_desc:"Sistema punto de venta PWA para negocio local. Gestión de productos, ventas y reportes con Firebase Firestore y notificaciones por correo vía EmailJS.",
-    p7_desc:"Entrenador interactivo de conjugación en portugués. 30 verbos, 10 tiempos verbales y niveles A1–C2. Sin backend ni dependencias externas.",
+    p1_desc:"Sistema de punto de venta para restaurantes, taquerías y cafeterías. Gestión de mesas, menú personalizable, cobro con propina y reportes del día.",
+    p2_desc:"Sistema de gestión académica personal. Panel, calendario, tareas por materia, integración con Telegram y autenticación Google. Desplegado en Firebase.",
     status_progress:"En_Progreso", status_active:"Activo", status_private:"Privado",
     btn_repo:"VER_REPO", btn_launch:"ABRIR_APP",
     stack_title:"Stack & Herramientas",
@@ -551,14 +459,9 @@ var T = {
     edu_title:"Education", edu_lbl1:"01 // DEGREE", edu_degree:"Bachelor's in Computer Science",
     edu_lbl2:"02 // CERTIFICATIONS",
     edu_note:"Preparing CompTIA certifications focused on offensive security and Linux systems.",
-    lab_title:"The Lab", lab_desc:"Nothing is finished here yet — and that's the point. Real projects at different stages of construction.",
-    p1_desc:"Structured Java learning repository. Exercises and fundamentals of object-oriented programming.",
-    p2_desc:"Digital content brand focused on AI. Complete visual identity and presence at nexuslabsai.dev.",
-    p3_desc:"Personal academic management system. Dashboard, calendar, tasks by subject, Telegram integration and Google authentication.",
-    p4_desc:"Interactive SQL practice tool with SQLite engine in the browser. 57 exercises, 13 blocks and automatic query validation.",
-    p5_desc:"Browser-based rent receipt generator. Auto-incremental folio via localStorage and PDF export with jsPDF. No backend or external dependencies.",
-    p6_desc:"PWA point-of-sale system for a local business. Product, sales and reporting management with Firebase Firestore and email notifications via EmailJS.",
-    p7_desc:"Interactive Portuguese conjugation trainer. 30 verbs, 10 verb tenses and A1–C2 levels. No backend or external dependencies.",
+    lab_title:"Products", lab_desc:"Functional software built to solve real problems. Available now.",
+    p1_desc:"Point-of-sale system for restaurants, taquerías and cafés. Table management, customizable menu, tip collection and daily reports.",
+    p2_desc:"Personal academic management system. Dashboard, calendar, tasks by subject, Telegram integration and Google authentication. Deployed on Firebase.",
     status_progress:"In_Progress", status_active:"Active", status_private:"Private",
     btn_repo:"VIEW_REPO", btn_launch:"LAUNCH_APP",
     stack_title:"Stack & Tools",
@@ -579,14 +482,9 @@ var T = {
     edu_title:"Formação", edu_lbl1:"01 // GRAU", edu_degree:"Bacharelado em Informática",
     edu_lbl2:"02 // CERTIFICAÇÕES",
     edu_note:"Preparando certificações CompTIA com foco em segurança ofensiva e sistemas Linux.",
-    lab_title:"The Lab", lab_desc:"Nada está terminado aqui ainda — e esse é o ponto. Projetos reais em diferentes etapas de construção.",
-    p1_desc:"Repositório de aprendizado estruturado em Java. Exercícios e fundamentos de programação orientada a objetos.",
-    p2_desc:"Marca de conteúdo digital focada em IA. Identidade visual completa e presença em nexuslabsai.dev.",
-    p3_desc:"Sistema de gestão acadêmica pessoal. Painel, calendário, tarefas por matéria, integração com Telegram e autenticação Google.",
-    p4_desc:"Ferramenta de prática interativa de SQL com motor SQLite no navegador. 57 exercícios, 13 blocos e validação automática.",
-    p5_desc:"Gerador de recibos de aluguel no navegador. Numeração automática com localStorage e exportação para PDF via jsPDF. Sem backend nem dependências externas.",
-    p6_desc:"Sistema de ponto de venda PWA para negócio local. Gestão de produtos, vendas e relatórios com Firebase Firestore e notificações por e-mail via EmailJS.",
-    p7_desc:"Treinador interativo de conjugação em português. 30 verbos, 10 tempos verbais e níveis A1–C2. Sem backend nem dependências externas.",
+    lab_title:"Produtos", lab_desc:"Software funcional construído para resolver problemas reais. Disponível agora.",
+    p1_desc:"Sistema de ponto de venda para restaurantes e cafeterias. Gestão de mesas, cardápio personalizável, cobrança com gorjeta e relatórios do dia.",
+    p2_desc:"Sistema de gestão acadêmica pessoal. Painel, calendário, tarefas por matéria, integração com Telegram e autenticação Google. Hospedado no Firebase.",
     status_progress:"Em_Progresso", status_active:"Ativo", status_private:"Privado",
     btn_repo:"VER_REPO", btn_launch:"ABRIR_APP",
     stack_title:"Stack & Ferramentas",
